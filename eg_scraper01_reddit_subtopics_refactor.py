@@ -290,6 +290,10 @@ for s in range (1, len(subtopics_dict)):
                     output_dict[str(s)]['tags'][str(c)]['X'] += 1
 
 # Export output_dict
+import json
+with open(r'C:\Users\Marco\Desktop\Gits\eg-texttools\output_dicts\output_dict.json', 'w') as fp:
+    json.dump(output_dict, fp)
+    
 text_file = open(r'C:\Users\Marco\Desktop\Gits\eg-texttools\output_dicts\output_dict.txt', "w")
 text_file.write(str(output_dict))
 text_file.close()
