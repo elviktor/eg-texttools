@@ -211,6 +211,7 @@ for s in range (1, len(subtopics_dict)):
     #/// POS Tagging (HMM Tagger) << [Comments]
     
     # Create 'tag' and 'sentiments' subdictionaries for each subtopic
+    output_dict[str(s)]['comments'] = {}
     output_dict[str(s)]['tags'] = {}
     output_dict[str(s)]['sentiments'] = {}
     #output_dict = {0:{'topic':'?', 'tags': {1:{N':0, 'PRT':0, 'VERB':0, 'X':0}, 2:{}...}, 'sentiments': {1: {'pos': 0.0, 'neg': 0.0, 'obj': 0.0}, 2:{}...}}}
@@ -218,6 +219,9 @@ for s in range (1, len(subtopics_dict)):
     # LOOP through all subtopic comments:
     for c in range(1, len(subtopics_dict[str(s)]['comments'])): # Skip first comment to avoid boilerplate
         raw_comment = subtopics_dict[str(s)]['comments'][c]
+    
+        #0) Add raw_comment to output_dict
+        output_dict[str(s)]['comments'][str(c)] = raw_comment
     
         #1) Clean all raw comment text
         input_text = review_to_words(raw_comment)
